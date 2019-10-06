@@ -1,7 +1,8 @@
 ---
 title: Vue Router
 date: 2019-04-27 15:39:06
-header-img: /images/bg5.jpg
+header-img: /images/bg1.png
+author: "BerniLin 21"
 # cdn: 'header-on'
 tags:
   - Vue

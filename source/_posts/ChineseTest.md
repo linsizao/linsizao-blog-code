@@ -3,8 +3,7 @@ layout: post
 title: 中文测试
 subtitle: "is a test"
 date: 2019-03-24 17:17:17
-author: "BerniLin 21"
-header-img: /images/bg2.jpg
+header-img: /images/bg1.png
 # cdn: 'header-on'
 tags:
   - test

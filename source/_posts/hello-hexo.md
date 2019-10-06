@@ -2,7 +2,8 @@
 title: Hello Hexo
 subtitle: "使用Github Pages+Hexo+Anisina搭建博客"
 date: 2019-04-06 16:53:00
-header-img: /images/bg4.jpg
+header-img: /images/bg1.png
+author: "BerniLin 21"
 # cdn: 'header-on'
 tags:
   - Hexo
