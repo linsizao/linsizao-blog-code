@@ -2,7 +2,7 @@
 title: 优雅的 commit 你的代码
 date: 2019-10-04 20:13:16
 header-img: /images/bg1.png
-作者 BerniLin 21
+
 tags:
   - git
 ---
