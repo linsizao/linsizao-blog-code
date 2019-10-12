@@ -1,5 +1,5 @@
 ---
-title: 优雅的 commit 你的代码
+title: 优雅地 commit 你的代码
 date: 2019-10-04 20:13:16
 header-img: /images/bg1.png
 
@@ -25,6 +25,10 @@ tags:
   * subject: commit 的概述
   * body: commit 具体修改内容, 可以分为多行
   * footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.
+  * perf 性能优化
+  * test 测试更新
+  * build 构建系统或者包依赖更新
+  * ci CI 配置，脚本文件等更新
 
 ## 常用的emoji
 

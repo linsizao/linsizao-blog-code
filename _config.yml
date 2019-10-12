@@ -78,21 +78,17 @@ featured-condition-size: 0              # A tag will be featured if the size of 
 # friends
 friends: [
 	{
-		title: "vuejs",
-		href: "https://vuejs.org"
+		title: "czero",
+		href: "www.czero.cn"
 	},
 	{
-		title: "juejin im",
-		href: "https://juejin.im/user/59a2ef36f265da24843e677c"
+		title: "shekang",
+		href: "www.shekang.me"
   },
   {
-		title: "Ruan Yifeng's",
-		href: "http://www.ruanyifeng.com"
-	},
-	{
-		title: "liao xue feng",
-		href: "hhttp://https://www.liaoxuefeng.com"
-	},
+		title: "MuMu",
+		href: "www.burqee.com"
+	}
 ]
 
 # Directory
