@@ -79,15 +79,15 @@ featured-condition-size: 0              # A tag will be featured if the size of 
 friends: [
 	{
 		title: "czero",
-		href: "www.czero.cn"
+		href: "http://czero.cn"
 	},
 	{
 		title: "shekang",
-		href: "www.shekang.me"
+		href: "http://shekang.me"
   },
   {
 		title: "MuMu",
-		href: "www.burqee.com"
+		href: "http://burqee.com"
 	}
 ]
 
