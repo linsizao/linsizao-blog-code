@@ -19,9 +19,9 @@ favicon: # your favicon png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://linsizao.github.io
+url: http://linsizao.gitee.io
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 permalink_defaults:
 
 # SNS settings
@@ -58,9 +58,20 @@ valine:
   avatar: mm #评论列表默认头像样式
   placeholder: Just go go #评论框占位符
 
+# page view
+leancloud_visitors:
+  enable: true
+  app_id: erYGLgqXmQtCoFKaguuOPJhd-gzGzoHsz
+  app_key: yc5Jfn2fhX45zoupV8qPCi7o
+
+# baidu SEO
+baidu_site_verification: true
+
+
+
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 7118c2c754b85d7c695740dc44663ae4
+ba_track_id: e2b919b5daa739e632cb9c6a177410d2
 # Google Analytics
 ga_track_id:             # Format: UA-xxxxxx-xx
 ga_domain:
@@ -154,6 +165,7 @@ theme: Anisina
 deploy:
   type: git
   # repository: https://github.com/linsizao/linsizao.github.io.git
+  # branch: jump_link
   repository: https://gitee.com/linsizao/linsizao.git
   branch: master
 
