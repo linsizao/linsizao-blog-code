@@ -14,7 +14,7 @@ email: linsizao@163.com
 description: "linsizao在 Github 上的个人博客"
 keyword: # seo key words
 
-favicon: # your favicon png
+favicon: /images/favicon.png
 # custom end
 
 # URL
@@ -180,7 +180,7 @@ clip-avatar: "?imageView2/2/w/300/h/300/interlace/1/q/90"
 clip-home-post-bg: "?imageView2/1/w/800/h/300/interlace/1/q/70"
 
 # post default images
-post-default-img: bg10.jpg #博文默认的图片
+post-default-img: /images/bg1.png #博文默认的图片
 post-default-img-mobile: #移动端显示的图片
 
 # search api , set your custom key
