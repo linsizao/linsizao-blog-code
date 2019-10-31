@@ -152,7 +152,7 @@ git branch -d <branch> //  删除分支
 git branch -a //  列出本地和远程分支
 git branch -r //  列出所有远程分支  -r 参数相当于：remote
 git branch -vv  //  展示本地分支关联远程仓库的情况
-git branch -m <new-branch-name> //  重命名本地分支
+git branch -m | -M <old-branch-name> <new-branch-name>  // 重命名分支，如果newbranch名字分支已经存在，则需要使用-M强制重命名，否则，使用-m进行重命名
 git branch -u origin/mybranch //  关联远程分支
 git branch --set-upstream branch-name origin/branch-name  //  建立本地分支和远程分支的关联
 ```
