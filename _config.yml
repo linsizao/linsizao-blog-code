@@ -164,10 +164,10 @@ theme: Anisina
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  # repository: https://github.com/linsizao/linsizao.github.io.git
-  # branch: jump_link
-  repository: https://gitee.com/linsizao/linsizao.git
-  branch: master
+  repository: https://github.com/linsizao/linsizao.github.io.git
+  branch: jump_link
+  # repository: https://gitee.com/linsizao/linsizao.git
+  # branch: master
 
 
 # img CDN path

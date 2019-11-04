@@ -37,7 +37,7 @@ Hexo是一款基于Node.js的静态博客框架。
 
 安装hexo： 
 ``` bash
-$ install -g hexo-cli
+$ npm install -g hexo-cli
 ```
 安装hexo部署到git page的deployer：
 ``` bash
