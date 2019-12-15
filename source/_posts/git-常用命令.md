@@ -50,7 +50,7 @@ git commit --amend --author='Author Name email@address.com>'  修改作者名
 git update-ref -d HEAD
 ```
 
-## 查看 commit 记录
+## 查看 `commit` 记录
 ```
 git log
 git log --pretty=oneline // 精简显示
@@ -94,7 +94,7 @@ git diff HEAD //  工作区、暂存区 和本地最近的版本 (commit) 的 di
 git diff --word-diff  //  详细展示一行中的修改
 ```
 
-## 以新增一个 commit 的方式还原某一个 commit 的修改
+## 以新增一个 `commit` 的方式还原某一个 `commit` 的修改
 ```
 git revert <commit-id>
 ```
@@ -134,7 +134,7 @@ git rev-list -n 1 HEAD -- <file_path> #得到 deleting_commit
 git checkout <deleting_commit>^ -- <file_path> #回到删除文件 deleting_commit 之前的状态
 ```
 
-## 把 A 分支的某一个 commit，放到 B 分支上
+## 把 `A` 分支的某一个 `commit`，放到 `B` 分支上
 ```
 git checkout <branch-name> && git cherry-pick <commit-id>
 ```
@@ -210,7 +210,7 @@ git checkout -b <branch-name> <tag-name>  //  切回到某个标签
 git blame <file-name>
 ```
 
-## 给 git 命令起别名
+## 给 `git` 命令起别名
 ```
 git config --global alias.<handle> <command>  
 ```
