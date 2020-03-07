@@ -148,7 +148,7 @@ git rm test.txt
 ```
 git branch  //  看当前分支（本地）
 git branch <branch>  //  创建分支（本地）
-git branch -d <branch> //  删除分支
+git branch -D <branch> //  删除分支
 git branch -a //  列出本地和远程分支
 git branch -r //  列出所有远程分支  -r 参数相当于：remote
 git branch -vv  //  展示本地分支关联远程仓库的情况
@@ -163,7 +163,9 @@ git remote  //  列出所有远程仓库
 git remote add origin git@github.....git  //  添加远程仓库
 git remote set-url origin <URL> //  修改远程仓库的 url
 git remote show origin  //  查看远程分支和本地分支的对应关系
+git remote rm origin  // 删除远程关联关系
 git remote prune origin //  远程删除了分支本地也想删除
+
 ```
 
 ## 推送
