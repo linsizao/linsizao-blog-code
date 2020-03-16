@@ -186,7 +186,7 @@ mounted(){
 
 ## 9、`$attrs` 和 `$listeners`
 
-`$attrs` 获取子传父中未在 `props` 定义的值。当一个组件没有声明任何 `prop` 时，这里会包含所有父作用域的绑定 (class 和 style 除外)，并且可以通过 `v-bind="$attrs"` 传入内部组件
+`$attrs` 获取父传子中未在 `props` 定义的值。当一个组件没有声明任何 `prop` 时，这里会包含所有父作用域的绑定 (class 和 style 除外)，并且可以通过 `v-bind="$attrs"` 传入内部组件
 
 `$listeners` 包含了父作用域中的 (不含 .native 修饰器的) `v-on` 事件监听器。它可以通过 `v-on="$listeners"` 传入内部组件
 
