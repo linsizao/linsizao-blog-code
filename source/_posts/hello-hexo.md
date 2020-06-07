@@ -3,7 +3,7 @@ title: Hello Hexo
 subtitle: "使用Github Pages+Hexo+Anisina搭建博客"
 date: 2019-04-06 16:53:00
 header-img: /images/bg1.png
-author: "BerniLin 21"
+author: "BerniLin21"
 # cdn: 'header-on'
 tags:
   - Hexo
@@ -200,7 +200,7 @@ layout: post
 title: 中文测试
 subtitle: "is a test"
 date: 2019-03-24 17:17:17
-author: "BerniLin 21"
+author: "BerniLin21"
 header-img: bg10.jpg
 cdn: 'header-on'
 tags:

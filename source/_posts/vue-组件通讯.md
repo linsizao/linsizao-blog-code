@@ -1,6 +1,7 @@
 ---
 title: vue 组件通讯
 date: 2019-12-15 15:59:06
+author: "BerniLin21"
 header-img: /images/bg1.png
 tags:
   - Vue

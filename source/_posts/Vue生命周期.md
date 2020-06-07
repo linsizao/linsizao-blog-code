@@ -2,7 +2,7 @@
 title: Vue生命周期
 date: 2019-04-20 18:30:37
 header-img: /images/bg1.png
-author: "BerniLin 21"
+author: "BerniLin21"
 # cdn: 'header-on'
 tags:
   - Vue

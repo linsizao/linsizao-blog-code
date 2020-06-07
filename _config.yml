@@ -1,14 +1,14 @@
 
 # Site
-title: BerniLin 21 # your blog title name
+title: BerniLin21 # your blog title name
 subtitle:  
-author: BerniLin 21 # 作者
+author: BerniLin21 # 作者
 language: zh-CN
 timezone: Asia/Shanghai
 
 # custom Site settings
 # more detail check out docs
-SEOTitle: BerniLin 21's blog 
+SEOTitle: BerniLin21's blog 
 header-img: bg10.jpg
 email: linsizao@163.com
 description: "linsizao在 Github 上的个人博客"

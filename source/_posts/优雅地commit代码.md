@@ -1,6 +1,7 @@
 ---
 title: 优雅地 commit 你的代码
 date: 2019-10-04 20:13:16
+author: "BerniLin21"
 header-img: /images/bg1.png
 tags:
   - git

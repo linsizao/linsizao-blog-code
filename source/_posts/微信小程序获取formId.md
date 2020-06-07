@@ -2,7 +2,7 @@
 title: 微信小程序获取formId
 date: 2019-11-08 23:39:33
 header-img: /images/bg1.png
-author: "BerniLin 21"
+author: "BerniLin21"
 tags:
   - 微信小程序
 ---

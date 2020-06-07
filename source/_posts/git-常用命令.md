@@ -1,6 +1,7 @@
 ---
 title: git 常用命令
 date: 2019-10-19 21:11:21
+author: "BerniLin21"
 header-img: /images/bg1.png
 tags:
   - git
