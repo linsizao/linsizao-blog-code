@@ -22,7 +22,7 @@ tags:
 
 ## 1、用户同意授权，获取 code 和 openId
 
-```
+```javascript
 
 // 微信授权
 function getCode() {
@@ -60,7 +60,7 @@ function getOpenId (code) {
 
 ## 2、生成预订单
 
-```
+```javascript
 // 生成预订单
 function createOrderApp () {
   if(!openId) {
@@ -99,7 +99,7 @@ function createOrderApp () {
 
 ## 3、调起微信支付
 
-```
+```javascript
 // 调起微信支付
 function onBridgeReady(params) {
   const { appid, timestamp, noncestr, sign, signType, prepayid } = params

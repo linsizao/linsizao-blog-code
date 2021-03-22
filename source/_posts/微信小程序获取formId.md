@@ -32,7 +32,7 @@ tags:
 
 ## 代码实现
 
-```
+```javascript
 //  wxml
 <form report-submit='true' bindsubmit='userSubmit'>
   <button class='button' bindtap='copy'

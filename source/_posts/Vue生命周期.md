@@ -14,7 +14,7 @@ Vue / Vue 生命周期
 {% endblockquote %}
 
 
-``` code
+```javascript
 
 <template>
   <div class="hello">

@@ -20,7 +20,7 @@ tags:
 
 `props` 是最常见的父组件向子组件传值的属性。当父组件该属性变换时，子组件也会自动变换。`props` 可以是数组或者对象，对象允许配置高级选项。使用 kebab-case (短横线分隔命名) 命名
 
-```
+```javascript
 // 简单语法
 props: ['size', 'myMessage']
 
@@ -40,9 +40,9 @@ props: {
 
 `$emit` 是最常见的子传父的方法，子组件触发父组件给自己绑定的事件，同时附加参数传给监听器回调。
 
-```
+```html
 // 父组件
-<home @call-back="callBackFun">
+<home @call-back="callBackFun" />
 
 // 子组件
 this.$emit('call-back', data)
@@ -53,7 +53,7 @@ this.$emit('call-back', data)
 
 `v-model` 用于模板中输入框value值的数据双向绑定，但在组件中 `v-model` 则会等价于:
 
-```
+```html
 <base-input
   v-bind:value="value"
   v-on:input="value = $event"
@@ -62,7 +62,7 @@ this.$emit('call-back', data)
 
 将其 `value` 特性绑定到一个名叫 `value` 的 `prop` 上 在其 `input` 事件被触发时，将新的值通过自定义的 `input` 事件抛出
 
-```
+```javascript
 // 子组件
 Vue.component('base-input', {
   props: {
@@ -88,7 +88,7 @@ Vue.component('base-input', {
 
 通过给子组件添加 `ref` 属性，然后通过该属性访问子组件实例
 
-```
+```javascript
 // 父组件
 <base-input ref="input"/>
 
@@ -101,7 +101,7 @@ mounted(){
 ## 5、`.sync`
 
 子组件可以修改父组件中的值，举个弹窗的栗子
-```
+```javascript
 // 子组件
 props: {
   show: {
@@ -126,7 +126,7 @@ computed: {
 
 获取当前组件树的根 Vue 实例。如果当前实例没有父实例，此实例将会是其自己。
 
-```
+```javascript
 mounted(){
   console.log(this.$root) // 获取根实例，最后所有组件都是挂载到根实例上
   console.log(this.$root.$children[0]) // 获取根实例的一级子组件，一般不建议这样使用
@@ -137,7 +137,7 @@ mounted(){
 
 子组件内数据可以被父页面拿到，用来代替 `.slot`，`slot-cope` 和 `scope`
 
-```
+```javascript
 // 父组件
 <todo-list>
  <template v-slot:todo="slotProps" >
@@ -170,7 +170,7 @@ data() {
 
 `$children` 属性指向当前实例的直接子组件数组
 
-```
+```javascript
 // 父组件
 mounted(){
   console.log(this.$children) 
@@ -191,7 +191,7 @@ mounted(){
 
 `$listeners` 包含了父作用域中的 (不含 .native 修饰器的) `v-on` 事件监听器。它可以通过 `v-on="$listeners"` 传入内部组件
 
-```
+```javascript
 // 组件A
 Vue.component('A', {
   template: `
@@ -279,7 +279,7 @@ var app=new Vue({
 
 在父组件中通过 `provider` 来提供属性，然后在后代组件中通过 `inject` 来注入变量。不论子组件有多深，只要调用了 `inject` 那么就可以注入在 `provider` 中提供的数据。
 
-```
+```javascript
 // 父组件:
 provide: { // provide 是一个对象,提供一个属性或方法
   foo: '这是 foo',
@@ -310,7 +310,7 @@ mounted() {
 EventBus 通过新建一个 Vue 事件 `bus` 对象，然后通过 `bus.$emit` 触发事件，`bus.$on` 监听触发的事件
 如果项目规模是大中型的，那建议使用后面即将介绍的 [Vuex](https://vuex.vuejs.org/) 状态管理
 
-```
+```javascript
 // 在 main.js
 Vue.prototype.$eventBus=new Vue()
 
@@ -330,7 +330,7 @@ this.$eventBus.$on("eventTarget",v=>{
 Vue 内部会用它来处理 `data` 函数返回的对象。返回的对象可以直接用于渲染函数和计算属性内，并且会在发生改变时触发相应的更新。
 可作为最小化的跨组件状态存储器，用于简单的场景
 
-```
+```javascript
 // /store/store.js
 import Vue from 'vue'
 

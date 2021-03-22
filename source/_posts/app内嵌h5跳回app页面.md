@@ -11,7 +11,7 @@ tags:
 
 在 H5 页面中，可以直接利用如下的方法来进行判断是安卓还是 ios
 
-```
+```javascript
 // android 终端或者 uc 浏览器
 const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1
 
@@ -26,7 +26,7 @@ const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
 
 ###  android
 
-```
+```javascript
 // 通过地址实现
 window.location.href = 'ttg://com.hxb.coupon/help_list?id=' + param
 
@@ -40,7 +40,7 @@ window.android[method](json) //  'android' 是定义的变量，'method' 是定�
 
 ### ios
 
-```
+```javascript
 // 向 ios 发送消息
 const iosParam = {id: param}
 window.webkit.messageHandlers[method].postMessage({ body: iosParam })
@@ -49,7 +49,7 @@ window.webkit.messageHandlers[method].postMessage({ body: iosParam })
 
 ## 完整代码
 
-```
+```javascript
 const params = {
   method: '', // 方法名
   iosParam: {}, // ios传值

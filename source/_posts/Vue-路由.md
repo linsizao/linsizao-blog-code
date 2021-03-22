@@ -23,7 +23,7 @@ tags:
 
 ### 申明式
 
-``` code
+```javascript
   <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
   <router-link to="/foo">Go to Foo</router-link>
 
@@ -34,7 +34,7 @@ tags:
 
 ### 编程式
 
-``` code
+```javascript
 // 命名的路由
 router.push({ name: 'user', params: { userId: '123' }}) // 页面获取：this.$route.params.id
 
@@ -55,7 +55,7 @@ ps：其他的编程式跳转
 
 ### 动态路由
 
-``` code
+```javascript
   routes: [
     // 动态路径参数 以冒号开头
     { path: '/user/:id', component: User },
@@ -82,24 +82,24 @@ ps：其他的编程式跳转
 
 异步组件定义为返回一个 `Promise` 的工厂函数 ：
 
-``` code
+```javascript
 const Foo = () => Promise.resolve({ /* 组件定义对象 */ })
 ```
 然后我们可以使用动态 `import` 语法来定义代码分块点：
 
-``` code
+```javascript
 import('./Foo.vue') // 返回 Promise
 ```
 
 结合这两者，这就是如何定义一个能够被 `Webpack` 自动代码分割的异步组件。
-``` code
+```javascript
 const Foo = () => import('./Foo.vue')
 ```
 
 
 最后代码如下
 
-``` code
+```javascript
 
   {
     path: '/redirect',
@@ -121,7 +121,7 @@ const Foo = () => import('./Foo.vue')
 
 ### 命名路由
 
-``` code
+```javascript
 //路由设置
 const router = new VueRouter({
   routes: [
@@ -159,7 +159,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 
 代码实现：
 
-``` code
+``` javascript
 <!-- UserSettings.vue -->
 <div>
   <h1>User Settings</h1>
@@ -193,7 +193,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 ### 重定向
 当用户访问 `/a` 时，`URL` 将会被替换成 `/b`，然后匹配路由为 `/b`
 
-``` code
+```javascript
   routes: [
     { path: '/a', redirect: '/b' }
   ]
@@ -202,7 +202,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 ### 别名
 `/a` 的别名是 `/b`，意味着，当用户访问 `/b` 时，`URL` 会保持为 `/b`，但是路由匹配则为 `/a`，就像用户访问 `/a` 一样。
 
-``` code
+```javascript
   routes: [
     { path: '/a', component: A, alias: '/b' }
   ]
@@ -223,7 +223,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 3、`router.afterEach` 全局后置钩子 进入路由之后
 
 
-```
+```javascript
     // main.js 入口文件
     import router from './router'; // 引入路由
     router.beforeEach((to, from, next) => {
@@ -245,7 +245,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 #### 全局后置钩子的应用
 
 
-```
+```javascript
     import router from './router'; // 引入路由
     router.afterEach((to, from) => {
       if (未登录 && to.name !== 'login') {
@@ -256,7 +256,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 
 
 
-```
+```javascript
   next() 进入该路由。
   next(false): 取消进入路由，url地址重置为from路由地址(也就是将要离开的路由地址)。
   next 跳转新路由，当前的导航被中断，重新开始一个新的导航。
@@ -268,7 +268,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 
 路由配置上直接定义 `beforeEnter` 守卫：
 
-```
+```javascript
 const router = new VueRouter({
   routes: [
     {
@@ -288,7 +288,7 @@ const router = new VueRouter({
 2、`beforeRouteUpdate` (2.2) 路由复用同一个组件时
 3、`beforeRouteLeave` 离开当前路由时
 
-```
+```javascript
   beforeRouteEnter (to, from, next) {
     // 在路由独享守卫后调用 不！能！获取组件实例 `this`，组件实例还没被创建
   },

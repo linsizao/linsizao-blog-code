@@ -43,7 +43,7 @@ vue 会遍历 data 选项的属性，利用 `Object.defineProperty` 为属性添
 
 Observer 是一个数据监听器，其实现核心方法就是前文所说的 `Object.defineProperty()` 。如果要对所有属性都进行监听的话，那么可以通过递归方法遍历所有属性值，并对其进行 `Object.defineProperty()` 处理。如下代码，实现了一个 Observer。
 
-```
+```javascript
 class Vue {
   ...
 
@@ -83,7 +83,7 @@ class Vue {
 监听每个数据的变化后需要通知订阅者，创建一个可以容纳订阅者的消息订阅器 Dep ，订阅器 Dep 主要负责收集订阅者，然后再属性变化的时候执行对应订阅者的更新函数。
 所以我们需要一个容器
 
-```
+```javascript
 class Vue {
   ...
 
@@ -149,7 +149,7 @@ Watcher 订阅者作为 Observer 和 Compile 之间通信的桥梁，主要做�
 2、自身必须有一个 `update()` 方法
 3、待属性变动 `dep.notice()` 通知时，能调用自身的 `update()` 方法，并触发 Compile 中绑定的回调（Compile会提到），则功成身退。
 
-```
+```javascript
 class Watcher {
   constructor(vm, key, cb) {
     this.vm = vm
@@ -173,7 +173,7 @@ class Watcher {
 
 可以先模拟一下 Compile 触发 Watcher
 
-```
+```javascript
 class Vue {
   constructor (options) {
     this.$options = options
@@ -196,7 +196,7 @@ class Vue {
 
 为了解析模板，首先需要获取到dom元素，然后对含有 dom 元素上含有指令的节点进行处理，因此这个环节需要对dom操作比较频繁，所有可以先建一个 fragment 片段，将需要解析的 dom 节点存入 fragment 片段里再进行处理
 
-```
+```javascript
 // 将宿主元素中的代码片段拿出来遍历
 node2Fragment(el) {
   const frag = document.createDocumentFragment()
@@ -212,7 +212,7 @@ node2Fragment(el) {
 
 接下来需要遍历各个节点，对含有相关指定的节点进行特殊处理，以下包含插值文本、双向绑定、指令解析、事件绑定和 html 解析 
 
-```
+```javascript
 // compile.js
 
 /**
@@ -367,7 +367,7 @@ class Compile {
 
 上面基本完成了 Compile 的功能，然后我们再把 Observer 和 Watcher 整合在一起 ：
 
-```
+```javascript
 // vue.js
 
 // new Vue({data: {...}})
@@ -489,7 +489,7 @@ class Watcher {
 之后再 html 中 引入 vue.js 和 compile.js 就能实现 vue 几个重要的功能了
 嘿嘿 :stuck_out_tongue_winking_eye:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
