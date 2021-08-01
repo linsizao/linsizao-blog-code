@@ -149,7 +149,8 @@ git rm test.txt
 ```
 git branch  //  看当前分支（本地）
 git branch <branch>  //  创建分支（本地）
-git branch -D <branch> //  删除分支
+git branch -d <branch>会在删除前检查merge状态（其与上游分支或者与head）
+git branch -D <branch>是git branch --delete --force的简写，它会直接删除
 git branch -a //  列出本地和远程分支
 git branch -r //  列出所有远程分支  -r 参数相当于：remote
 git branch -vv  //  展示本地分支关联远程仓库的情况
@@ -227,6 +228,18 @@ git clean -X -f
 ```
 git config --global --unset <entry-name>  
 ```
+
+## 变基
+```
+rebase // 整合来自不同分支的修改主要方法之一
+```
+参考官方文档：http://www.git-scm.com.cn/1592.html
+
+```
+git rebase -i // 合并多次commit
+```
+参考：https://github.com/zuopf769/how_to_use_git/blob/master/%E4%BD%BF%E7%94%A8git%20rebase%E5%90%88%E5%B9%B6%E5%A4%9A%E6%AC%A1commit.md
+
 
 ## 参考文档
 * 官方：  https://git-scm.com/
