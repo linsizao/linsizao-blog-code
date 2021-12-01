@@ -7,34 +7,37 @@ tags:
   - 移动web
 ---
 
+<br/>
+
+<!-- more -->
+
 ## 判断终端
 
 在 H5 页面中，可以直接利用如下的方法来进行判断是安卓还是 ios
 
 ```javascript
 // android 终端或者 uc 浏览器
-const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1
+const isAndroid = u.indexOf("Android") > -1 || u.indexOf("Linux") > -1;
 
 // ios 终端
-const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
-
+const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 ```
 
 ## 实现跳转
 
 通过调用 app 方法实现跳转
 
-###  android
+### android
 
 ```javascript
 // 通过地址实现
-window.location.href = 'ttg://com.hxb.coupon/help_list?id=' + param
+window.location.href = "ttg://com.hxb.coupon/help_list?id=" + param;
 
 // or
 
 // 通过调用方法实现
-const json = JSON.stringify({id: param})
-window.android[method](json) //  'android' 是定义的变量，'method' 是定义的方法名
+const json = JSON.stringify({ id: param });
+window.android[method](json); //  'android' 是定义的变量，'method' 是定义的方法名
 // 安卓只能传基本类型
 ```
 
@@ -42,10 +45,9 @@ window.android[method](json) //  'android' 是定义的变量，'method' 是定�
 
 ```javascript
 // 向 ios 发送消息
-const iosParam = {id: param}
-window.webkit.messageHandlers[method].postMessage({ body: iosParam })
+const iosParam = { id: param };
+window.webkit.messageHandlers[method].postMessage({ body: iosParam });
 ```
-
 
 ## 完整代码
 
@@ -72,4 +74,3 @@ jumpApp(obj) {
   }
 }
 ```
-

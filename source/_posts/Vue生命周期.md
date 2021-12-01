@@ -8,11 +8,9 @@ tags:
   - Vue
 ---
 
+<br>
 
-{% blockquote  %}
-Vue / Vue 生命周期
-{% endblockquote %}
-
+<!-- more -->
 
 ```javascript
 

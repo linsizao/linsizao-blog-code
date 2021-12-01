@@ -8,14 +8,10 @@ tags:
   - Vue
 ---
 
-
-{% blockquote  %}
-  Vue / vue Router
-{% endblockquote %}
-
-
 使用 Vue 创建单页应用势必会用到 Vue Router，
 此前关于 Vue Router 的知识比较零散，现在得空便来整理 Vue Router。。。
+
+<!-- more -->
 
 ## 简单路由
 
@@ -36,22 +32,18 @@ tags:
 
 ```javascript
 // 命名的路由
-router.push({ name: 'user', params: { userId: '123' }}) // 页面获取：this.$route.params.id
-
+router.push({ name: "user", params: { userId: "123" } }); // 页面获取：this.$route.params.id
 
 // 带查询参数，变成 /register?plan=private
-router.push({ path: 'register', query: { plan: 'private' }}) // 页面获取：this.$route.query.id
-
-
+router.push({ path: "register", query: { plan: "private" } }); // 页面获取：this.$route.query.id
 ```
+
 `params` 和 `query` 都是路由传值方式，但是如果提供了 `path`，`params` 将会被忽略
 
-ps：其他的编程式跳转
-  1)、this.$router.replace()
+ps：其他的编程式跳转 1)、this.$router.replace()
     不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。
   2)、this.$router.go()
-    这个方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步，类似 window.history.go(n)。
-
+这个方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步，类似 window.history.go(n)。
 
 ### 动态路由
 
@@ -67,7 +59,7 @@ ps：其他的编程式跳转
 
 路由嵌套可简单理解为组件下再放组件，并实现路由切换
 
-``` code
+```code
 
 /user/foo/profile                     /user/foo/posts
 +------------------+                  +-----------------+
@@ -83,19 +75,23 @@ ps：其他的编程式跳转
 异步组件定义为返回一个 `Promise` 的工厂函数 ：
 
 ```javascript
-const Foo = () => Promise.resolve({ /* 组件定义对象 */ })
+const Foo = () =>
+  Promise.resolve({
+    /* 组件定义对象 */
+  });
 ```
+
 然后我们可以使用动态 `import` 语法来定义代码分块点：
 
 ```javascript
-import('./Foo.vue') // 返回 Promise
+import("./Foo.vue"); // 返回 Promise
 ```
 
 结合这两者，这就是如何定义一个能够被 `Webpack` 自动代码分割的异步组件。
-```javascript
-const Foo = () => import('./Foo.vue')
-```
 
+```javascript
+const Foo = () => import("./Foo.vue");
+```
 
 最后代码如下
 
@@ -145,7 +141,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 
 业务逻辑：
 
-``` code 
+```code
 /settings/emails                                       /settings/profile
 +-----------------------------------+                  +------------------------------+
 | UserSettings                      |                  | UserSettings                 |
@@ -159,7 +155,7 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 
 代码实现：
 
-``` javascript
+```javascript
 <!-- UserSettings.vue -->
 <div>
   <h1>User Settings</h1>
@@ -191,28 +187,24 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 ## 重定向和别名
 
 ### 重定向
+
 当用户访问 `/a` 时，`URL` 将会被替换成 `/b`，然后匹配路由为 `/b`
 
 ```javascript
-  routes: [
-    { path: '/a', redirect: '/b' }
-  ]
+routes: [{ path: "/a", redirect: "/b" }];
 ```
 
 ### 别名
+
 `/a` 的别名是 `/b`，意味着，当用户访问 `/b` 时，`URL` 会保持为 `/b`，但是路由匹配则为 `/a`，就像用户访问 `/a` 一样。
 
 ```javascript
-  routes: [
-    { path: '/a', component: A, alias: '/b' }
-  ]
+routes: [{ path: "/a", component: A, alias: "/b" }];
 ```
-
 
 ## 路由守卫
 
 有的时候，我们需要通过路由来进行一些操作，比如最常见的登录权限验证，当用户满足条件时，才让其进入导航，否则就取消跳转，并跳到登录页面让其登录。
-
 
 ### 全局守卫
 
@@ -222,21 +214,20 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 2、`router.beforeResolve` 全局解析守卫(2.5.0+) 在 `beforeRouteEnter` 调用之后调用
 3、`router.afterEach` 全局后置钩子 进入路由之后
 
-
 ```javascript
-    // main.js 入口文件
-    import router from './router'; // 引入路由
-    router.beforeEach((to, from, next) => {
-      next();
-    });
-    router.beforeResolve((to, from, next) => {
-      next();
-    });
-    router.afterEach((to, from) => {
-      console.log('afterEach 全局后置钩子');
-    });
-
+// main.js 入口文件
+import router from "./router"; // 引入路由
+router.beforeEach((to, from, next) => {
+  next();
+});
+router.beforeResolve((to, from, next) => {
+  next();
+});
+router.afterEach((to, from) => {
+  console.log("afterEach 全局后置钩子");
+});
 ```
+
 每个守卫方法接收三个参数：
 `to`: 即将要进入的目标 路由对象
 `from`: 当前导航正要离开的路由
@@ -244,17 +235,14 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 
 #### 全局后置钩子的应用
 
-
 ```javascript
-    import router from './router'; // 引入路由
-    router.afterEach((to, from) => {
-      if (未登录 && to.name !== 'login') {
-        router.push({ name: 'login' }); // 跳转login
-      }
-    });
+import router from "./router"; // 引入路由
+router.afterEach((to, from) => {
+  if (未登录 && to.name !== "login") {
+    router.push({ name: "login" }); // 跳转login
+  }
+});
 ```
-
-
 
 ```javascript
   next() 进入该路由。
@@ -262,7 +250,6 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
   next 跳转新路由，当前的导航被中断，重新开始一个新的导航。
 
 ```
-
 
 ### 路由独享守卫
 
@@ -272,14 +259,14 @@ this.$router.push({ name: 'user', params: { userId: 123 }})
 const router = new VueRouter({
   routes: [
     {
-      path: '/foo',
+      path: "/foo",
       component: Foo,
       beforeEnter: (to, from, next) => {
         // ...
-      }
-    }
-  ]
-})
+      },
+    },
+  ],
+});
 ```
 
 ### 路由组件内的守卫：
@@ -314,9 +301,9 @@ const router = new VueRouter({
 8、调用全局解析守卫：`beforeResolve`
 9、导航被确认
 10、调用全局后置钩子的 `afterEach` 钩子。
-11、触发DOM更新(`mounted`)。
+11、触发 DOM 更新(`mounted`)。
 12、用创建好的实例 `beforeRouteEnter` 守卫中传给 next 的回调函数
 
-
 ## 参考文档
-* 官方：  https://router.vuejs.org
+
+- 官方： https://router.vuejs.org

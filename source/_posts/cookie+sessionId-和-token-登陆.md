@@ -7,8 +7,11 @@ tags:
   - 登陆
 ---
 
-*这里讲到的是最常见的 cookie + session 登陆和 token 登陆，其他登陆方式可能会在后续提到。。。*
+![img](/images/bg4.png)
 
+_这里讲到的是最常见的 cookie + session 登陆和 token 登陆，其他登陆方式可能会在后续提到。。。_
+
+<!-- more -->
 
 ## cookie + session 登陆
 
@@ -20,13 +23,11 @@ tags:
 
 - 客户端请求服务端，服务端会为这次请求开辟一块内存空间，即 session 对象
 
-
 ### session
 
 - session 是记录服务器和客户端会话状态的机制
 
 - session 是基于 cookie 实现的，session 存储在服务器端，sessionId 会被存储到客户端的 cookie 中
-
 
 ### cookie + session 实现流程
 
@@ -41,14 +42,11 @@ tags:
 具体流程如下：
 ![流程][1]
 
-
 ### cookie + session 的不足
 
-* 如果用户多的情况下服务器需要存放大量的 sessionId ，加大了服务器的负担
-* 服务器需要同步所有的 sessionId 增加运维成本
-* sessionId 存放在浏览器的 cookie 中，无法避免 CSRF 攻击
-
-
+- 如果用户多的情况下服务器需要存放大量的 sessionId ，加大了服务器的负担
+- 服务器需要同步所有的 sessionId 增加运维成本
+- sessionId 存放在浏览器的 cookie 中，无法避免 CSRF 攻击
 
 ## token 登陆
 
@@ -56,7 +54,7 @@ Token 是访问资源接口（API）时所需要的资源凭证
 当第一次登录后，服务器会生成一个 Token 并返回给客户端，
 客户端后续访问时，只需带上这个 Token 即可完成身份认证。
 
-*为了解决 cookie + token 模式下的问题，可以使用 token 来实现登陆。*
+_为了解决 cookie + token 模式下的问题，可以使用 token 来实现登陆。_
 
 ### token 的实现流程
 
@@ -68,17 +66,12 @@ Token 是访问资源接口（API）时所需要的资源凭证
 
 具体流程如下：
 ![流程][2]
-*此处省略前端自行校验登陆状态*
-
+_此处省略前端自行校验登陆状态_
 
 ### token 的特点
 
-* token 生成后不需要存放在服务器，减少服务器的压力
-* token 由前端自由保存，不必存放在 cookie ，提高安全性
-
-
-
-
+- token 生成后不需要存放在服务器，减少服务器的压力
+- token 由前端自由保存，不必存放在 cookie ，提高安全性
 
 [1]: /images/cookie+sessionId.png
 [2]: /images/token.png

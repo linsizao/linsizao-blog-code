@@ -7,14 +7,11 @@ tags:
   - Vue
 ---
 
-
-{% blockquote  %}
-  Vue / vue 组件通讯
-{% endblockquote %}
-
+<br>
 
 组件式开发作为 Vue 框架的核心思想，那么组件之间的通讯就显得尤为重要了
 
+<!-- more -->
 
 ## 1、`props`
 
@@ -44,20 +41,15 @@ props: {
 // 父组件
 <home @call-back="callBackFun" />
 
-// 子组件
-this.$emit('call-back', data)
-
+// 子组件 this.$emit('call-back', data)
 ```
 
 ## 3、`v-model`
 
-`v-model` 用于模板中输入框value值的数据双向绑定，但在组件中 `v-model` 则会等价于:
+`v-model` 用于模板中输入框 value 值的数据双向绑定，但在组件中 `v-model` 则会等价于:
 
 ```html
-<base-input
-  v-bind:value="value"
-  v-on:input="value = $event"
-/>
+<base-input v-bind:value="value" v-on:input="value = $event" />
 ```
 
 将其 `value` 特性绑定到一个名叫 `value` 的 `prop` 上 在其 `input` 事件被触发时，将新的值通过自定义的 `input` 事件抛出
@@ -101,6 +93,7 @@ mounted(){
 ## 5、`.sync`
 
 子组件可以修改父组件中的值，举个弹窗的栗子
+
 ```javascript
 // 子组件
 props: {
@@ -120,7 +113,6 @@ computed: {
   }
 }
 ```
-
 
 ## 6、`$root`
 
@@ -142,15 +134,15 @@ mounted(){
 <todo-list>
  <template v-slot:todo="slotProps" >
    {{slotProps.user.firstName}}
- </template> 
-</todo-list> 
+ </template>
+</todo-list>
 //slotProps 可以随意命名
 //slotProps 接取的是子组件标签slot上属性数据的集合所有v-bind:user="user"
 
 // 子组件
 <slot name="todo" :user="user" :test="test">
     {{ user.lastName }}
- </slot> 
+ </slot>
 data() {
   return {
     user:{
@@ -173,7 +165,7 @@ data() {
 ```javascript
 // 父组件
 mounted(){
-  console.log(this.$children) 
+  console.log(this.$children)
   // 可以拿到 一级子组件的属性和方法
   // 所以就可以直接改变 data,或者调用 methods 方法
 }
@@ -211,7 +203,7 @@ Vue.component('A', {
     getChildData(val) {
       console.log(`这是来自B组件的数据：${val}`);
     },
-    
+
     // 执行C子组件触发的事件
     getCData(val) {
       console.log(`这是来自C组件的数据：${val}`);
@@ -223,7 +215,7 @@ Vue.component('A', {
 Vue.component('B', {
   template: `
     <div>
-      <input type="text" v-model="mymessage" @input="passData(mymessage)"> 
+      <input type="text" v-model="mymessage" @input="passData(mymessage)">
       <!-- C组件中能直接触发 getCData 的原因在于：B组件调用 C组件时，使用 v-on 绑定了 $listeners 属性 -->
       <!-- 通过v-bind 绑定 $attrs 属性，C组件可以直接获取到 A组件中传递下来的 props（除了 B组件中 props声明的） -->
       <C v-bind="$attrs" v-on="$listeners"></C>
@@ -263,7 +255,7 @@ Vue.component('C', {
     }
   }
 });
-    
+
 var app=new Vue({
   el:'#app',
   template: `
@@ -298,11 +290,9 @@ mounted() {
 
 ```
 
-
 ## 11、`vue-router` 路由传参
 
 当需要实现跨路由组件的传参时，可以查看[官方](https://router.vuejs.org/zh/guide/essentials/passing-props.html)提供的解决方案，或者是看我之前写的 [Vue Router](https://linsizao.gitee.io/Vue-%E8%B7%AF%E7%94%B1/#%E7%BC%96%E7%A8%8B%E5%BC%8F) 的文章
-
 
 ## 12、`EventBus`
 
@@ -312,16 +302,15 @@ EventBus 通过新建一个 Vue 事件 `bus` 对象，然后通过 `bus.$emit` �
 
 ```javascript
 // 在 main.js
-Vue.prototype.$eventBus=new Vue()
+Vue.prototype.$eventBus = new Vue();
 
 // 传值组件
-this.$eventBus.$emit('eventTarget','这是eventTarget传过来的值')
+this.$eventBus.$emit("eventTarget", "这是eventTarget传过来的值");
 
 // 接收组件
-this.$eventBus.$on("eventTarget",v=>{
-  console.log('eventTarget',v);//这是eventTarget传过来的值
-})
-
+this.$eventBus.$on("eventTarget", (v) => {
+  console.log("eventTarget", v); //这是eventTarget传过来的值
+});
 ```
 
 ## 13、`Vue.observable`
