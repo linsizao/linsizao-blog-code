@@ -258,17 +258,40 @@ git config --global --unset <entry-name>
 
 ## 变基
 
-```
-rebase // 整合来自不同分支的修改主要方法之一
-```
+`rebase` 可以对某一段线性提交历史进行编辑、删除、复制、粘贴。 因此，合理使用 rebase 命令可以使我们的提交历史干净、简洁！
 
-参考官方文档：http://www.git-scm.com.cn/1592.html
+_参考官方文档：https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA_
 
 ```
-git rebase -i // 合并多次commit
+git pull --rebase
+
+git pull --rebase 代替 git pull // git pull --rebase = git fetch + git rebase
+
+git config --global pull.rebase true
+// 更改 pull.rebase 的默认配置，后续使用 git pull 就是使用 git pull --rebase 了
+
+// 使用 git pull -- rebase 发生冲突的时候解决所有冲突的文件
+git add .
+git rebase --continue
+
+// 若是中间毫无冲突，变基则一步到位，否则需要逐步调整。
+git rebase --continue // 提交变更后继续变基下一步
+git rebase --skip // 引起冲突的commits会被丢弃，continue提示没有需要改动的也可以用这个跳过
+git rebase --abort // 若是变基改残废了，但是走到一半，可以彻底回滚变基之前的状态
+
 ```
 
-参考：https://github.com/zuopf769/how_to_use_git/blob/master/%E4%BD%BF%E7%94%A8git%20rebase%E5%90%88%E5%B9%B6%E5%A4%9A%E6%AC%A1commit.md
+```
+// 变基与合并
+(dev): git rebase master // 将当前分(dev)支变基为 master 分支
+(master): git merge dev // 回到 master 分支，进行一次快进合并
+```
+
+```
+git rebase -i // 合并多次 commit
+```
+
+_参考：https://github.com/zuopf769/how_to_use_git/blob/master/%E4%BD%BF%E7%94%A8git%20rebase%E5%90%88%E5%B9%B6%E5%A4%9A%E6%AC%A1commit.md_
 
 ## 参考文档
 
