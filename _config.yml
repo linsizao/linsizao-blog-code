@@ -167,8 +167,8 @@ deploy:
   type: git
   # repository: https://github.com/linsizao/linsizao.github.io.git
   # branch: jump_link
-  # repository: https://gitee.com/linsizao/linsizao.git
-  repo: root@42.193.253.56:/var/repo/blog.git
+  repository: https://gitee.com/linsizao/linsizao.git
+  # repo: root@42.193.253.56:/var/repo/blog.git
   branch: master
 
 

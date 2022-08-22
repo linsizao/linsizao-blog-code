@@ -1,16 +1,15 @@
 ---
-title: Vue生命周期
+title: Vue 生命周期
 date: 2019-04-20 18:30:37
 header-img: /images/bg1.png
 author: "BerniLin21"
-# cdn: 'header-on'
 tags:
   - Vue
 ---
 
-<br>
+![img](/images/bg1.png)
 
-<!-- more -->
+### vue2
 
 ```javascript
 
@@ -58,9 +57,32 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
-
 ```
+
+### v2 to v3
+
+| v2            | v3(Options)     | v3(Composition)   | des                                              |
+| ------------- | --------------- | ----------------- | ------------------------------------------------ |
+| beforeCreate  | beforeCreate    |
+| created       | created         |
+| beforeMount   | befortMount     | onBeforeMount     |
+| mounted       | mounted         | onMounted         |
+| beforeUpdate  | beforeUpdate    | onBeforeUpdate    |
+| updated       | updated         | onUpdated         |
+| beforeDestroy | beforeDestroy   | onBeforeUnmount   |
+| destroyed     | destroyed       | onUnMounted       |
+| activated     | activated       | onActivated       |
+| deactivated   | deactivated     | onDeactivated     |
+| errorCaptured | errorCaptured   | onErrorCaptured   | 在捕获了后代组件传递的错误时调用                 |
+|               | renderTracked   | onRenderTracked   | dev only，当组件渲染过程中追踪到响应式依赖时调用 |
+|               | renderTriggered | onRenderTriggered | dev only，当响应式依赖的变更触发了组件渲染时调用 |
+|               | serverPrefetch  | onServerPrefetch  | ssr only，在组件实例在服务器上被渲染之前调用     |
+
+### 生命周期图示
+
+<img src="/images/lifecycle.png" width="688px" height="1088px" style="max-height:none">
+
+<br/>
+<br/>
+
+<em> ps: Options 模式下的 `beforeCreate` 和 `created` 的内容可在 Composition 模式下的 `setup` 内调用 <em>
