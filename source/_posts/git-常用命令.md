@@ -66,7 +66,7 @@ git log Branch1 ^Branch2  commit 历史中显示 Branch1 有的，但是 Branch2
 
 ```
 git pull
-git fetch //  是从远程获取最新版本到本地，不会自动merge
+git fetch //  是从远程获取最新版本到本地，不会自动 merge
 git fetch origin pull/<id>/head:<branch-name> //  从远程仓库根据 ID，拉下某一状态，到本地分支
 ```
 
@@ -113,10 +113,10 @@ git revert <commit-id>
 
 ```
 git reset --hard HEAD^  //  回退上一版本，上上版本 HEAD^^
-git reset –mixed HEAD^  //  回退至上个版本，它将重置 HEAD 到另外一个 commit ,并且重置暂存区以便和HEAD相匹配，但是也到此为止。工作区不会被更改。
-git reset –soft HEAD~3  //  回退至三个版本之前，只回退了 commit 的信息，暂存区和工作区与回退之前保持一致。如果还要提交，直接commit即可
+git reset –mixed HEAD^  //  回退至上个版本，它将重置 HEAD 到另外一个 commit,并且重置暂存区以便和HEAD相匹配，但是也到此为止。工作区不会被更改。
+git reset –soft HEAD~3  //  回退至三个版本之前，只回退了 commit 的信息，暂存区和工作区与回退之前保持一致。如果还要提交，直接 commit 即可
 git reset <commit-id> //  回退到指定 commit-id 的状态
-git reset –hard <commit-id> //  彻底回退到指定 commit-id 的状态，暂存区和工作区也会变为指定commit-id版本的内容
+git reset –hard <commit-id> //  彻底回退到指定 commit-id 的状态，暂存区和工作区也会变为指定 commit-id 版本的内容
 
 ```
 
@@ -167,14 +167,18 @@ git rm test.txt
 ```
 git branch  //  看当前分支（本地）
 git branch <branch>  //  创建分支（本地）
-git branch -d <branch>会在删除前检查merge状态（其与上游分支或者与head）
-git branch -D <branch>是git branch --delete --force的简写，它会直接删除
+git branch -d <branch>会在删除前检查 merge 状态（其与上游分支或者与 head）
+git branch -D <branch>是 git branch --delete --force 的简写，它会直接删除
 git branch -a //  列出本地和远程分支
 git branch -r //  列出所有远程分支  -r 参数相当于：remote
 git branch -vv  //  展示本地分支关联远程仓库的情况
-git branch -m | -M <old-branch-name> <new-branch-name>  // 重命名分支，如果newbranch名字分支已经存在，则需要使用-M强制重命名，否则，使用-m进行重命名
+git branch -m | -M <old-branch-name> <new-branch-name>  // 重命名分支，如果 newbranch 名字分支已经存在，则需要使用 -M 强制重命名，否则，使用 -m 进行重命名
 git branch -u origin/mybranch //  关联远程分支
 git branch --set-upstream branch-name origin/branch-name  //  建立本地分支和远程分支的关联
+
+git branch | grep -v "master" | xargs git branch -D // 本地删除除 master 以外所有分支
+// * 执行前需要切换到 master 分支执行
+// * 当前分支未做修改
 ```
 
 ## 远程仓库
@@ -276,7 +280,7 @@ git rebase --continue
 
 // 若是中间毫无冲突，变基则一步到位，否则需要逐步调整。
 git rebase --continue // 提交变更后继续变基下一步
-git rebase --skip // 引起冲突的commits会被丢弃，continue提示没有需要改动的也可以用这个跳过
+git rebase --skip // 引起冲突的 commits 会被丢弃，continue 提示没有需要改动的也可以用这个跳过
 git rebase --abort // 若是变基改残废了，但是走到一半，可以彻底回滚变基之前的状态
 
 ```
